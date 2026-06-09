@@ -18,3 +18,23 @@ func CreateBlogPost(title string, body string, tags []string, cover string) erro
 	}
 	return nil
 }
+
+func DeleteBlogPost(id int64) error {
+	db := config.DB
+	defer db.Close()
+	if id == 0 {
+		return errors.New("id missing")
+	}
+	query := "delete from blog_post where id = $1"
+	_, err := db.Exec(query, id)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+/*
+func GetBlogPost(id int64) (error,) {
+
+}
+*/

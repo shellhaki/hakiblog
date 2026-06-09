@@ -4,7 +4,7 @@ create table if not exists blog_post(
     body text,
     tags text[],
     cover text,
-    shares integer,
+    shares integer default 0,
     created_at timestamp with time zone default current_timestamp
 );
 

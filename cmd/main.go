@@ -23,6 +23,7 @@ func main() {
 	adminr := app.Group("/admin")
 	{
 		adminr.POST("/blog/create", admin.CreateBlogPostHandler)
+		adminr.DELETE("/blog/delete/:id", admin.DeleteBlogPostHandler)
 	}
 	app.Run(":4001")
 }
